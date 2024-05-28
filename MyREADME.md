@@ -37,9 +37,8 @@
   * Fail to use "-ngl", rebuild llama.cpp with "make LLAMA_CUDA=1".
   * Fail to use the "TinyLlama-1.1B-Chat-v0.3-GGUF" model without building llama.cpp with "make LLAMA_CURL=1", use "!wget" and solve it.
   * Log information output will make the answers of each model unintuitive, use "--log-disable" to disable the output of log.
-* What you observed between CPU / GPU performance ?
-  * 
-  
+* What you observed between CPU / GPU performance?
+  * The throughput of CPU only is lower since it processes the tasks sequentially or with limited parallelism. And the throughput of GPU enabled is significantly higher due to the parallel processing capabilities.
 * Will quantization or smaller-parameters model impact model accuracy or inference throughput? If so, what's the variation? 
   * Quantization: It reduces the precision of the model's weights and activations. This can lead to a slight decrease in model accuracy. But it can significantly improve inference speed because operations on lower-precision data types are faster and require less memory bandwidth than operations on higher-precision data types.
   * Smaller-parameters: It simplifies the model architecture. This can make the model generally performs less accurately since it has fewer parameters to capture the complexity of the data. But the speedup gained from using smaller models can be significant due to the fewer computations.
